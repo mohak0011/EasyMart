@@ -6,6 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Category {
-
     private  String title;
 }
