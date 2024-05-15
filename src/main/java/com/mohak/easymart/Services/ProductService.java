@@ -1,5 +1,6 @@
 package com.mohak.easymart.Services;
 
+import com.mohak.easymart.Exceptions.ProductNotFoundException;
 import com.mohak.easymart.Models.Product;
 import com.mohak.easymart.Utilities.FakeStoreDto;
 import com.mohak.easymart.Utilities.ProductRequestDto;
@@ -9,11 +10,11 @@ import java.util.List;
 
 public interface ProductService {
 
-     ProductResponseDto GetProduct(int productId);
+     Product GetProduct(int productId) throws ProductNotFoundException;
 
-     List<ProductResponseDto> getAllProducts();
+     List<Product> getAllProducts();
 
-     ProductResponseDto AddProduct(
+     Product AddProduct(
             String title,
             String description,
             String imageurl,
@@ -22,13 +23,13 @@ public interface ProductService {
 
     );
 
-      ProductResponseDto updateProduct(int productId, ProductRequestDto productRequestDto);
+      Product updateProduct(int productId, ProductRequestDto productRequestDto);
 
-      ProductResponseDto DeleteProduct(int productId);
+      Product DeleteProduct(int productId);
 
      List<String> GetCategories();
 
-     List<ProductResponseDto> GetCategory(String category);
+     List<Product> GetCategory(String category);
 
 
 

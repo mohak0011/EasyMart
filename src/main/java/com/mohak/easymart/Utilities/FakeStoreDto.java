@@ -1,7 +1,11 @@
 package com.mohak.easymart.Utilities;
 
+import com.mohak.easymart.Models.Category;
+import com.mohak.easymart.Models.Product;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.xml.catalog.Catalog;
 
 @Getter
 @Setter
@@ -15,17 +19,19 @@ public class FakeStoreDto {
     private  String Image;
     private  String category;
 
-    public  ProductResponseDto toProductResponseDto()
+    public Product toProduct()
     {
-        ProductResponseDto productResponseDto = new ProductResponseDto();
-        productResponseDto.setId(id);
-        productResponseDto.setTitle(Title);
-        productResponseDto.setDescription(Description);
-        productResponseDto.setPrice(Price);
-        productResponseDto.setImage(Image);
-        productResponseDto.setCategory(category);
+        Product product = new Product();
+        product.setId(id);
+        product.setTitle(Title);
+        product.setDescription(Description);
+        product.setPrice(Price);
+        product.setImageUrl(Image);
+        Category categoryobj = new Category();
+        categoryobj.setTitle(category);
+        product.setCategory(categoryobj);
 
-        return  productResponseDto;
+        return  product;
 
     }
 }
